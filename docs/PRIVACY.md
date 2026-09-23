@@ -25,6 +25,8 @@
 
 ## 公開物について
 
+案内サイトはGitHub APIに配布状況を問い合わせ、ダウンロードにもGitHubを利用します。サイト独自の入力フォームやアクセス解析はありませんが、ホスティングサービスや配信基盤では不正アクセス対策とアクセス記録の処理が行われる場合があります。IPアドレスやブラウザ情報等の扱いには、[GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)、[OpenAI](https://openai.com/policies/privacy-policy/)、[Cloudflare](https://www.cloudflare.com/privacypolicy/)それぞれのプライバシーポリシーが適用されます。アプリ自体に通信処理がないことは、これらの外部サービスも一切データを扱わないという意味ではありません。
+
 このリポジトリには、開発に必要なソース・設定・テスト・説明書を収録します。開発者や利用者の氏名、メールアドレス、電話番号、Googleアカウント情報、端末の固有識別子、実際の写真、署名鍵、ローカルSDKパス、端末ログは収録しません。
 
 不具合報告でも、写真、連絡先、アカウント情報、端末のシリアル番号、認証情報を投稿しないでください。機種名、Androidのバージョン、再現手順など、必要最小限の情報で報告してください。

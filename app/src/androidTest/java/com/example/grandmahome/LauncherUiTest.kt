@@ -63,4 +63,16 @@ class LauncherUiTest {
         compose.onNodeWithText("Wi-Fi").assertDoesNotExist()
         compose.onNodeWithText("Playストア").assertDoesNotExist()
     }
+
+    @Test
+    fun licensesOpenFromSettingsAndReturnToHome() {
+        compose.onNodeWithText("ライセンス・利用条件").assertDoesNotExist()
+        repeat(5) { compose.onNodeWithTag("home_clock").performClick() }
+        compose.onNodeWithText("ライセンス・利用条件").performScrollTo().performClick()
+        compose.onNodeWithText("おばあちゃんホーム 1.0.1").assertIsDisplayed()
+        compose.onNodeWithText("設定に戻る").performClick()
+        compose.onNodeWithText("ホームに戻る").performClick()
+        compose.onNodeWithText("LINE").assertIsDisplayed()
+        compose.onNodeWithText("ライセンス・利用条件").assertDoesNotExist()
+    }
 }

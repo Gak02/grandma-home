@@ -300,6 +300,11 @@ private fun HomeTile(
 
 @Composable
 private fun AdminDialog(activity: MainActivity, onDismiss: () -> Unit) {
+    var showLicenses by remember { mutableStateOf(false) }
+    if (showLicenses) {
+        LicenseDialog(activity, onDismiss = { showLicenses = false })
+        return
+    }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("家族用の設定") },
@@ -324,10 +329,29 @@ private fun AdminDialog(activity: MainActivity, onDismiss: () -> Unit) {
                     onDismiss()
                     activity.openPackage("com.android.vending", "Playストア")
                 }
+                AdminButton("ライセンス・利用条件") { showLicenses = true }
                 Text("ボタンの位置・大きさは固定です。通知欄や他のアプリの操作は制限しません。", fontSize = 13.sp)
             }
         },
         confirmButton = { TextButton(onClick = onDismiss) { Text("ホームに戻る") } },
+    )
+}
+
+@Composable
+private fun LicenseDialog(activity: MainActivity, onDismiss: () -> Unit) {
+    val notices = remember {
+        activity.assets.open("THIRD_PARTY_LICENSES.txt").bufferedReader().use { it.readText() }
+    }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("ライセンス・利用条件") },
+        text = {
+            Column(Modifier.verticalScroll(rememberScrollState())) {
+                Text("おばあちゃんホーム 1.0.1", fontSize = 16.sp)
+                Text(notices, fontSize = 13.sp)
+            }
+        },
+        confirmButton = { TextButton(onClick = onDismiss) { Text("設定に戻る") } },
     )
 }
 
