@@ -1,0 +1,30 @@
+# Local IDE and build state
+.idea/
+.gradle/
+.kotlin/
+**/build/
+*.iml
+local.properties
+.DS_Store
+
+# Credentials, signing material and local configuration
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pem
+key.properties
+keystore.properties
+secrets.properties
+google-services.json
+
+# Generated packages, logs and device captures
+*.apk
+*.aab
+*.apks
+*.log
+captures/
+screenshots/
+recordings/
